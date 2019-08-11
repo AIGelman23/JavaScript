@@ -1,5 +1,5 @@
 // Black Jack Script
-// by Ariel Gelman
+// Plural Sigh Course By Mark Zamoyta
 
 let suits = ['Hearts', 'Clubs', 'Diamonds', 'Spades'];
 let values = ['Ace', 'King', 'Queen', 'Jack', 'Ten', 'Nine', 'Eight', 'Seven', 'Six', 'Five', 'Four', 'Three', 'Two'];
@@ -117,7 +117,8 @@ let hasAce = false;
 for (let i = 0; i < cardArray.length; i++) {
     let card = cardArray[i];
     score += getCardNumericValue(card);
-    if (card.value === 'Ace') {hasAce = true;
+    if (card.value === 'Ace') {
+        hasAce = true;
     }
 }
 if (hasAce && score + 10 <=21) {
@@ -131,7 +132,12 @@ dealerScore = getScore(dealerCards);
 playerScore = getScore(playerCards);
 }
 
+
 function checkForEndOfGame() {
+
+    updateScores();
+
+    if(gameOver){
 // let dealer take cards
 while(dealerScore < playerScore 
     && playerScore <= 21
@@ -157,9 +163,8 @@ else if (gameOver) {
     }
     else {
         playerWon = false;
+        }
     }
-
-
 }
 
 function showStatus() {
